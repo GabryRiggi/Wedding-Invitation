@@ -1,0 +1,64 @@
+{
+  "couple": {
+    "bride": "Alessandra",
+    "groom": "Andrea",
+    "label": "Ci sposiamo",
+    "date": "2 LUGLIO 2027",
+    "footerDate": "2.07.2027"
+  },
+  "envelope": {
+    "invitationLabel": "Invito Ufficiale",
+    "sealAriaLabel": "Apri l'invito",
+    "instruction": "Tocca la busta per aprire"
+  },
+  "hero": {
+    "titleSeparator": "&"
+  },
+  "events": [
+    {
+      "title": "La Cerimonia",
+      "time": "Ore 11:00",
+      "venue": "Chiesa di San Lorenzo",
+      "address": "Via delle Rose, 15",
+      "city": "Torino",
+      "mapUrl": "#",
+      "icon": "Heart"
+    },
+    {
+      "title": "Il Ricevimento",
+      "time": "Ore 13:30",
+      "venue": "Villa Fiorita Relais",
+      "address": "Strada del Vino, 42",
+      "city": "Monferrato",
+      "mapUrl": "#",
+      "icon": "Calendar"
+    }
+  ],
+  "rsvp": {
+    "title": "RSVP",
+    "deadline": "Ti preghiamo di confermare la tua presenza entro il 1° Giugno 2027.",
+    "thanksTitle": "Grazie!",
+    "thanksMessage": "Abbiamo ricevuto la tua conferma.",
+    "thanksFollowUp": "Non vediamo l'ora di festeggiare con te!",
+    "submitLabel": "Conferma Presenza",
+    "submittingLabel": "Invio in corso..."
+  },
+  "form": {
+    "nameLabel": "Nome e Cognome",
+    "namePlaceholder": "Es: Mario Rossi",
+    "guestsLabel": "Numero di Ospiti",
+    "dietaryLabel": "Intolleranze / Allergie",
+    "dietaryPlaceholder": "Nessuna, Vegetariano, Vegano, Celiaco, ecc...",
+    "guestOptions": [
+      { "value": "0", "label": "Non potrò partecipare, mi dispiace" },
+      { "value": "1", "label": "1 (Solo io)" },
+      { "value": "2", "label": "2 persone" },
+      { "value": "3", "label": "3 persone" },
+      { "value": "4", "label": "4 persone" },
+      { "value": "5", "label": "5+ persone" }
+    ]
+  },
+  "footer": {
+    "text": "Andrea e Alessandra • 2.07.2027"
+  }
+}
