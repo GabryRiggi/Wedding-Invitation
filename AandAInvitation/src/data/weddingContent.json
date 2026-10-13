@@ -1,0 +1,70 @@
+{
+  "couple": {
+    "bride": "Alessandra",
+    "groom": "Andrea",
+    "label": "Ci sposiamo",
+    "date": "2 LUGLIO 2027",
+    "footerDate": "2.07.2027"
+  },
+  "envelope": {
+    "invitationLabel": "Invito Ufficiale",
+    "sealAriaLabel": "Apri l'invito",
+    "instruction": "Tocca la busta per aprire"
+  },
+  "hero": {
+    "titleSeparator": "&"
+  },
+  "events": [
+    {
+      "title": "Cerimonia e Ricevimento",
+      "time": "Ore 11:00 - 23:00",
+      "venue": "Poggio Mulara",
+      "address": "Contrada Mulara, 93030",
+      "city": "Mazzarino (CL), Sicilia",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Contrada+Mulara+93030+Mazzarino+CL",
+      "directions": "L'evento si svolgerà a Poggio Mulara, in Contrada Mulara, 93030, Mazzarino (CL). Arrivando, seguite le indicazioni del venue e troverete il parcheggio e l'ingresso principale all'arrivo.",
+      "icon": "Heart",
+      "schedule": [
+        {
+          "label": "Cerimonia e Ricevimento",
+          "time": "Ore 11:00 - 23:00",
+          "venue": "Poggio Mulara",
+          "address": "Contrada Mulara, 93030",
+          "city": "Mazzarino (CL), Sicilia"
+        }
+      ]
+    }
+  ],
+  "rsvp": {
+    "title": "RSVP",
+    "deadline": "Ti preghiamo di confermare la tua presenza entro il 1° Giugno 2027.",
+    "thanksTitle": "Grazie!",
+    "thanksMessage": "Abbiamo ricevuto la tua conferma.",
+    "thanksFollowUp": "Non vediamo l'ora di festeggiare con te!",
+    "submitLabel": "Conferma Presenza",
+    "submittingLabel": "Invio in corso..."
+  },
+  "iban": {
+    "label": "Regalo di Nozze",
+    "beneficiary": "Andrea e Alessandra",
+    "value": "IT60 X054 2811 1010 0000 0000 000"
+  },
+  "form": {
+    "nameLabel": "Nome e Cognome",
+    "namePlaceholder": "Es: Mario Rossi",
+    "guestsLabel": "Numero di Ospiti",
+    "dietaryLabel": "Intolleranze / Allergie",
+    "dietaryPlaceholder": "Nessuna, Vegetariano, Vegano, Celiaco, ecc...",
+    "guestOptions": [
+      { "value": "0", "label": "Non potrò partecipare, mi dispiace" },
+      { "value": "1", "label": "1 (Solo io)" },
+      { "value": "2", "label": "2 persone" },
+      { "value": "3", "label": "3 persone" },
+      { "value": "4", "label": "4 persone" },
+      { "value": "5", "label": "5+ persone" }
+    ]
+  },
+  "footer": {
+    "text": "Andrea e Alessandra • 2.07.2027"
+  }
+}
