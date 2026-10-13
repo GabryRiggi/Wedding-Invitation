@@ -4,6 +4,7 @@ import EnvelopeIntro from './components/EnvelopeIntro';
 import HeroSection from './components/HeroSection';
 import EventCard from './components/EventCard';
 import RSVPSection from './components/RSVPSection';
+import IBANSection from './components/IBANSection';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -71,10 +72,8 @@ export default function App() {
       <HeroSection content={invitationContent} />
 
       <main className="max-w-4xl mx-auto px-6">
-        <section className="py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-          {invitationContent.events.map(event => (
-            <EventCard key={event.title} event={event} />
-          ))}
+        <section className="py-16">
+          <EventCard event={invitationContent.events[0]} />
         </section>
 
         <RSVPSection
@@ -85,6 +84,8 @@ export default function App() {
           onChange={handleFormChange}
           onSubmit={handleRSVPSubmit}
         />
+
+        <IBANSection content={invitationContent} />
       </main>
 
       <Footer content={invitationContent} />

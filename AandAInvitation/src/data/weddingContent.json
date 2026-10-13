@@ -16,22 +16,23 @@
   },
   "events": [
     {
-      "title": "La Cerimonia",
-      "time": "Ore 11:00",
-      "venue": "Chiesa di San Lorenzo",
-      "address": "Via delle Rose, 15",
-      "city": "Torino",
-      "mapUrl": "#",
-      "icon": "Heart"
-    },
-    {
-      "title": "Il Ricevimento",
-      "time": "Ore 13:30",
-      "venue": "Villa Fiorita Relais",
-      "address": "Strada del Vino, 42",
-      "city": "Monferrato",
-      "mapUrl": "#",
-      "icon": "Calendar"
+      "title": "Cerimonia e Ricevimento",
+      "time": "Ore 11:00 - 23:00",
+      "venue": "Poggio Mulara",
+      "address": "Contrada Mulara, 93030",
+      "city": "Mazzarino (CL), Sicilia",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Contrada+Mulara+93030+Mazzarino+CL",
+      "directions": "L'evento si svolgerà a Poggio Mulara, in Contrada Mulara, 93030, Mazzarino (CL). Arrivando, seguite le indicazioni del venue e troverete il parcheggio e l'ingresso principale all'arrivo.",
+      "icon": "Heart",
+      "schedule": [
+        {
+          "label": "Cerimonia e Ricevimento",
+          "time": "Ore 11:00 - 23:00",
+          "venue": "Poggio Mulara",
+          "address": "Contrada Mulara, 93030",
+          "city": "Mazzarino (CL), Sicilia"
+        }
+      ]
     }
   ],
   "rsvp": {
@@ -42,6 +43,11 @@
     "thanksFollowUp": "Non vediamo l'ora di festeggiare con te!",
     "submitLabel": "Conferma Presenza",
     "submittingLabel": "Invio in corso..."
+  },
+  "iban": {
+    "label": "Regalo di Nozze",
+    "beneficiary": "Andrea e Alessandra",
+    "value": "IT60 X054 2811 1010 0000 0000 000"
   },
   "form": {
     "nameLabel": "Nome e Cognome",
