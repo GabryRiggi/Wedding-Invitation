@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import invitationContent from './data/weddingContent.json';
 import EnvelopeIntro from './components/EnvelopeIntro';
 import HeroSection from './components/HeroSection';
@@ -12,6 +12,84 @@ export default function App() {
   const [isRevealed, setIsRevealed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const storySectionsRef = useRef([]);
+
+  useEffect(() => {
+    const elements = document.querySelectorAll('.reveal-section');
+
+    if (!elements.length) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, [isRevealed]);
+
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll('[data-story-section]'));
+    storySectionsRef.current = sections;
+
+    if (!sections.length) {
+      return undefined;
+    }
+
+    let isScrolling = false;
+
+    const handleWheel = (event) => {
+      const target = event.target;
+
+      if (target instanceof HTMLElement && target.closest('input[type="range"], textarea, input, button')) {
+        return;
+      }
+
+      if (Math.abs(event.deltaY) < 10 || isScrolling) {
+        return;
+      }
+
+      const currentIndex = sections.findIndex((section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.4;
+      });
+
+      if (currentIndex === -1 || currentIndex >= sections.length - 1 && event.deltaY > 0) {
+        return;
+      }
+
+      if (currentIndex <= 0 && event.deltaY < 0) {
+        return;
+      }
+
+      event.preventDefault();
+      isScrolling = true;
+
+      const targetIndex = event.deltaY > 0 ? currentIndex + 1 : currentIndex - 1;
+      const nextSection = sections[targetIndex];
+
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      setTimeout(() => {
+        isScrolling = false;
+      }, 850);
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, [isRevealed]);
 
   const [formData, setFormData] = useState({
     nome: '',
@@ -69,23 +147,29 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] font-serif text-[#4A4A4A] selection:bg-[#D4AF37] selection:text-white pb-20">
-      <HeroSection content={invitationContent} />
+      <section id="hero" data-story-section className="reveal-section min-h-screen flex items-center justify-center">
+        <HeroSection content={invitationContent} />
+      </section>
 
       <main className="max-w-4xl mx-auto px-6">
-        <section className="py-16">
+        <section id="location" data-story-section className="reveal-section min-h-screen flex items-center justify-center py-16">
           <EventCard event={invitationContent.events[0]} />
         </section>
 
-        <RSVPSection
-          content={invitationContent}
-          formData={formData}
-          isSubmitting={isSubmitting}
-          isSubmitted={isSubmitted}
-          onChange={handleFormChange}
-          onSubmit={handleRSVPSubmit}
-        />
+        <section id="rsvp" className="reveal-section">
+          <RSVPSection
+            content={invitationContent}
+            formData={formData}
+            isSubmitting={isSubmitting}
+            isSubmitted={isSubmitted}
+            onChange={handleFormChange}
+            onSubmit={handleRSVPSubmit}
+          />
+        </section>
 
-        <IBANSection content={invitationContent} />
+        <section id="iban" className="reveal-section">
+          <IBANSection content={invitationContent} />
+        </section>
       </main>
 
       <Footer content={invitationContent} />

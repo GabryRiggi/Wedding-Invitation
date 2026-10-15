@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { CheckCircle2, ChefHat, Send } from 'lucide-react';
 
-// SVG colorati e simpatici per adulti e bambini
 const AdultIcon = ({ className }) => (
   <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
     <circle cx="32" cy="18" r="11" fill="#F9D8B7" />
@@ -38,7 +37,6 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
   const rsvpEndpoint = import.meta.env.VITE_SCRIPT_URL || import.meta.env.VITE_API_RSVP_URL;
   const rsvpKey = import.meta.env.VITE_SCRIPT_KEY;
   
-  // Stati per adulti e bambini
   const [adultCount, setAdultCount] = useState(2);
   const [childCount, setChildCount] = useState(0);
 
@@ -62,7 +60,7 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
 
   return (
     <section className="py-20">
-      <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#F0EBE1]">
+      <div className="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#FCD8B9]">
         <div className="text-center mb-10">
           <h2 className="text-4xl text-[#5C5046] mb-4">{content?.rsvp?.title || "RSVP"}</h2>
           <p className="text-[#8C7A6B]">{content?.rsvp?.deadline}</p>
@@ -79,17 +77,16 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
           <form onSubmit={handleSubmit} className="space-y-8">
             
             {/* Sezione Sliders */}
-            <div className="bg-[#FAF8F5] p-8 rounded-2xl border border-[#E8E1D7] mb-10">
+            <div className="bg-[#F6F1E5] p-8 rounded-2xl border border-[#FCD8B9] mb-10">
               <h3 className="text-center text-sm uppercase tracking-widest text-[#8C7A6B] mb-8">
                 Chi sarà presente?
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                {/* Slider Adulti */}
                 <div className="flex flex-col items-center">
                   <div className="flex items-center justify-between w-full mb-4">
                     <div className="flex items-center text-[#5C5046]">
-                      <AdultIcon className="w-8 h-8 mr-3 text-[#D4AF37]" />
+                      <AdultIcon className="w-8 h-8 mr-3 text-[#DDA15E]" />
                       <span className="font-serif text-lg">Adulti</span>
                     </div>
                     <span className="text-2xl font-serif text-[#8C7A6B]">{adultCount}</span>
@@ -100,16 +97,15 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
                     max="10"
                     value={adultCount}
                     onChange={(e) => setAdultCount(parseInt(e.target.value))}
-                    className="w-full h-2 bg-[#E8E1D7] rounded-lg appearance-none cursor-pointer accent-[#D4AF37]"
+                    className="w-full h-2 bg-white border border-[#FCD8B9] rounded-lg appearance-none cursor-pointer accent-[#DDA15E]"
                     name="numero_adulti"
                   />
                 </div>
 
-                {/* Slider Bambini */}
                 <div className="flex flex-col items-center">
                   <div className="flex items-center justify-between w-full mb-4">
                     <div className="flex items-center text-[#5C5046]">
-                      <ChildIcon className="w-7 h-7 mr-3 text-[#D4AF37]" />
+                      <ChildIcon className="w-7 h-7 mr-3 text-[#DDA15E]" />
                       <span className="font-serif text-lg">Bambini</span>
                     </div>
                     <span className="text-2xl font-serif text-[#8C7A6B]">{childCount}</span>
@@ -120,22 +116,20 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
                     max="10"
                     value={childCount}
                     onChange={(e) => setChildCount(parseInt(e.target.value))}
-                    className="w-full h-2 bg-[#E8E1D7] rounded-lg appearance-none cursor-pointer accent-[#D4AF37]"
+                    className="w-full h-2 bg-white border border-[#FCD8B9] rounded-lg appearance-none cursor-pointer accent-[#DDA15E]"
                     name="numero_bambini"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="w-full h-px bg-[#F0EBE1] my-8"></div>
+            <div className="w-full h-px bg-[#FCD8B9] my-8"></div>
 
-            {/* Campi dinamici per ogni ospite (Adulti e Bambini separati) */}
             <div className="space-y-10">
-              
               {/* Form Adulti */}
               {adults.map((num) => (
-                <div key={`adult_${num}`} className="relative p-6 bg-white border border-[#E8E1D7] shadow-sm rounded-2xl">
-                  <div className="absolute -top-3.5 left-6 bg-white px-3 py-1 border border-[#E8E1D7] rounded-full text-xs font-bold tracking-widest text-[#D4AF37] uppercase flex items-center">
+                <div key={`adult_${num}`} className="relative p-6 bg-white border border-[#FCD8B9] shadow-sm rounded-2xl">
+                  <div className="absolute -top-3.5 left-6 bg-white px-3 py-1 border border-[#FCD8B9] rounded-full text-xs font-bold tracking-widest text-[#DDA15E] uppercase flex items-center">
                     <AdultIcon className="w-3 h-3 mr-1" /> Adulto {num}
                   </div>
 
@@ -149,7 +143,7 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
                         id={`nome_adulto_${num}`}
                         name={`nome_adulto_${num}`}
                         required
-                        className="w-full px-4 py-3 bg-[#FAF8F5] border border-[#E8E1D7] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all font-sans text-[#4A4A4A]"
+                        className="w-full px-4 py-3 bg-[#F6F1E5] border border-[#FCD8B9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E] focus:border-transparent transition-all font-sans text-[#4A4A4A]"
                         placeholder="Nome"
                       />
                     </div>
@@ -162,7 +156,7 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
                         id={`cognome_adulto_${num}`}
                         name={`cognome_adulto_${num}`}
                         required
-                        className="w-full px-4 py-3 bg-[#FAF8F5] border border-[#E8E1D7] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all font-sans text-[#4A4A4A]"
+                        className="w-full px-4 py-3 bg-[#F6F1E5] border border-[#FCD8B9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E] focus:border-transparent transition-all font-sans text-[#4A4A4A]"
                         placeholder="Cognome"
                       />
                     </div>
@@ -175,7 +169,7 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
                       id={`note_adulto_${num}`}
                       name={`note_adulto_${num}`}
                       rows="1"
-                      className="w-full px-4 py-3 bg-[#FAF8F5] border border-[#E8E1D7] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] transition-all font-sans text-[#4A4A4A] resize-none"
+                      className="w-full px-4 py-3 bg-[#F6F1E5] border border-[#FCD8B9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E] transition-all font-sans text-[#4A4A4A] resize-none"
                       placeholder="Eventuali allergie..."
                     ></textarea>
                   </div>
@@ -184,8 +178,8 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
 
               {/* Form Bambini */}
               {children.map((num) => (
-                <div key={`child_${num}`} className="relative p-6 bg-[#FAF8F5] border border-[#E8E1D7] rounded-2xl">
-                  <div className="absolute -top-3.5 left-6 bg-[#FAF8F5] px-3 py-1 border border-[#E8E1D7] rounded-full text-xs font-bold tracking-widest text-[#8C7A6B] uppercase flex items-center">
+                <div key={`child_${num}`} className="relative p-6 bg-[#F6F1E5] border border-[#FCD8B9] rounded-2xl">
+                  <div className="absolute -top-3.5 left-6 bg-[#F6F1E5] px-3 py-1 border border-[#FCD8B9] rounded-full text-xs font-bold tracking-widest text-[#8C7A6B] uppercase flex items-center">
                     <ChildIcon className="w-3 h-3 mr-1" /> Bambino {num}
                   </div>
 
@@ -199,7 +193,7 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
                         id={`nome_bambino_${num}`}
                         name={`nome_bambino_${num}`}
                         required
-                        className="w-full px-4 py-3 bg-white border border-[#E8E1D7] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] transition-all font-sans text-[#4A4A4A]"
+                        className="w-full px-4 py-3 bg-white border border-[#FCD8B9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E] transition-all font-sans text-[#4A4A4A]"
                         placeholder="Nome"
                       />
                     </div>
@@ -212,7 +206,7 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
                         id={`cognome_bambino_${num}`}
                         name={`cognome_bambino_${num}`}
                         required
-                        className="w-full px-4 py-3 bg-white border border-[#E8E1D7] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] transition-all font-sans text-[#4A4A4A]"
+                        className="w-full px-4 py-3 bg-white border border-[#FCD8B9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E] transition-all font-sans text-[#4A4A4A]"
                         placeholder="Cognome"
                       />
                     </div>
@@ -224,8 +218,8 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
                     <textarea
                       id={`note_bambino_${num}`}
                       name={`note_bambino_${num}`}
-                      rows="1"
-                      className="w-full px-4 py-3 bg-white border border-[#E8E1D7] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D4AF37] transition-all font-sans text-[#4A4A4A] resize-none"
+                      rows="2"
+                      className="w-full min-h-[96px] px-4 py-3 bg-white border border-[#FCD8B9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DDA15E] transition-all font-sans text-[#4A4A4A] resize-none"
                       placeholder="Note, allergie o richiesta menù baby..."
                     ></textarea>
                   </div>
@@ -236,7 +230,7 @@ export default function RSVPSection({ content, isSubmitting, isSubmitted, onSubm
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full mt-10 bg-[#8C7A6B] hover:bg-[#5C5046] text-white py-4 rounded-lg font-sans tracking-widest uppercase text-sm transition-all flex items-center justify-center disabled:opacity-70 shadow-md hover:shadow-lg"
+              className="w-full mt-10 bg-[#E58C7F] hover:bg-[#DDA15E] text-white py-4 rounded-lg font-sans tracking-widest uppercase text-sm transition-all flex items-center justify-center disabled:opacity-70 shadow-[0_4px_15px_rgba(229,140,127,0.3)] hover:shadow-[0_6px_20px_rgba(221,161,94,0.3)]"
             >
               {isSubmitting ? (
                 <span className="animate-pulse">{content?.rsvp?.submittingLabel || 'Invio in corso...'}</span>
